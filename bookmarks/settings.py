@@ -11,6 +11,17 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from django.core.urlresolvers import reverse_lazy
+
+
+# Tells Django which URL to redirect after login if the contrib.auth.views.login view gets no next parameter
+LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+
+# Is the URL to redirect the user to log in (e.g. using the login_required decorator)
+LOGIN_URL = reverse_lazy('login')
+
+# Is the URL to redirect the user to log out
+LOGOUT_URL = reverse_lazy('logout')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +42,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'account',  
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,9 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-MX'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
@@ -119,3 +130,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# SMTP Config
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'usuario@gmail.com'
+# EMAIL_HOST_PASSWORD = 'passsword'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+# para escribir el correo a la consola en lugar de enviarlo
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
