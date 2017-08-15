@@ -1,8 +1,13 @@
 {% extends "base.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+	<div class="breadcrumbs"><a href="{% url "login" %}"></a>{% trans "Login" %}</div>
+{% endblock breadcrumbs %}
 
 {% block title %}Logged out{% endblock %}
 
 {% block content %}
   <h1>Logged out</h1>
-  <p>You have been successfully logged out. You can <a href="{% url "login" %}">log-in again</a>.</p>
+  <p>{% trans "You have been successfully logged out. You can" %} <a href="{% url "login" %}">{% trans 'Log in again' %}</a>.</p>
 {% endblock %}

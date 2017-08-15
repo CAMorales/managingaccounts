@@ -1,12 +1,14 @@
-{% load staticfiles %}
+{% load i18n static %}{% load staticfiles %}
 <!DOCTYPE html>
-<html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static "css/base.css" %}">
 </head>
+{% load i18n %}
 <body>
 <div id="header">
 	<span class="logo">Bookmarks</span>
@@ -24,12 +26,18 @@
 		</ul>
 	{% endif %}
 	<span class="user">
+	{% block userlinks %}
 		{% if request.user.is_authenticated %}
-			Hello {{ request.user.first_name }},
+			{% trans 'Welcome,' %}
+                <strong>{% firstof user.get_short_name user.get_username %}</strong>. / 
+			{% if user.has_usable_password %}
+				<a href="{% url 'password_change' %}">{% trans 'Change password' %}</a> / 
+			{% endif %}
 			<a href="{% url "logout" %}">Logout</a>
 		{% else %}
 			<a href="{% url "login" %}">Log-in</a>
 		{% endif %}
+	{% endblock userlinks %}
 	</span>
 </div>
 <div id="content">

@@ -5,6 +5,7 @@ from django.contrib.auth.views import login, logout, \
     password_reset_complete
 from . import views
 
+# app_name = 'account'
 
 urlpatterns = [
     # previous login view
@@ -37,6 +38,6 @@ urlpatterns = [
     #     password_reset_confirm, name='password_reset_confirm'),
     # url(r'^password-reset/complete/$', password_reset_complete,
     #     name='password_reset_complete'),
-     url('^', include('django.contrib.auth.urls')),
+    url('^', include('django.contrib.auth.urls')),
 
 ]
