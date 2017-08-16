@@ -5,9 +5,9 @@
 	<div class="breadcrumbs"><a href="{% url "account:login" %}"></a>{% trans "Login" %}</div>
 {% endblock breadcrumbs %}
 
-{% block title %}Logged out{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-  <h1>Logged out</h1>
+  <h1>{{ title }}</h1>
   <p>{% trans "You have been successfully logged out. You can" %} <a href="{% url "account:login" %}">{% trans 'Log in again' %}</a>.</p>
 {% endblock %}
