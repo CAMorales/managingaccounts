@@ -1,12 +1,12 @@
 from django.conf.urls import url, include
-from django.contrib.auth.views import login, logout, \
-    logout_then_login, password_change, password_change_done, \
-    password_reset, password_reset_done, password_reset_confirm, \
-    password_reset_complete
+# from django.contrib.auth.views import login, logout, \
+#     logout_then_login, password_change, password_change_done, \
+#     password_reset, password_reset_done, password_reset_confirm, \
+#     password_reset_complete
 from . import views
 
-# app_name = 'account'
 
+app_name = 'account'
 urlpatterns = [
     # previous login view
     # url(r'^login/$', views.user_login, name='login'),
@@ -39,5 +39,6 @@ urlpatterns = [
     # url(r'^password-reset/complete/$', password_reset_complete,
     #     name='password_reset_complete'),
     url('^', include('django.contrib.auth.urls')),
-
+    url(r'^register/$', views.register, name='register'),
+    url(r'^edit/$', views.edit, name='edit'),
 ]

@@ -15,13 +15,13 @@ from django.core.urlresolvers import reverse_lazy
 
 
 # Tells Django which URL to redirect after login if the contrib.auth.views.login view gets no next parameter
-LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+LOGIN_REDIRECT_URL = reverse_lazy('account:dashboard')
 
 # Is the URL to redirect the user to log in (e.g. using the login_required decorator)
-LOGIN_URL = reverse_lazy('login')
+LOGIN_URL = reverse_lazy('account:login')
 
 # Is the URL to redirect the user to log out
-LOGOUT_URL = reverse_lazy('logout')
+LOGOUT_URL = reverse_lazy('account:logout')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -140,3 +140,6 @@ STATIC_URL = '/static/'
 
 # para escribir el correo a la consola en lugar de enviarlo
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

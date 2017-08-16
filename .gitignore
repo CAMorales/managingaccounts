@@ -51,3 +51,5 @@ docs/_build/
 
 # Sublime files
 *.sublime-workspace
+# uploaded png files 
+media/
