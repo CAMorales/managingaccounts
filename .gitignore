@@ -53,3 +53,4 @@ docs/_build/
 *.sublime-workspace
 # uploaded png files 
 media/
+.idea/

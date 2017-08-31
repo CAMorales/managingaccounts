@@ -5,7 +5,6 @@ from django.conf.urls import url, include
 #     password_reset_complete
 from . import views
 
-
 app_name = 'account'
 urlpatterns = [
     # previous login view
